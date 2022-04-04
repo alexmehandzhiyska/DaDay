@@ -14,7 +14,7 @@ const Register = () => {
     const registerUser = (data) => {
         authService.register(data, avatar)
             .then(() => {
-                navigate('/');
+                navigate('/share-day');
             })
             .catch(err => {
                 console.log(err);

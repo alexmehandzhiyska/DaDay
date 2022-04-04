@@ -10,7 +10,7 @@ const Login = () => {
     const loginUser = (data) => {
         authService.login(data)
             .then(() => {
-                navigate('/');
+                navigate('/share-day');
             })
             .catch(err => {
                 console.log(err);

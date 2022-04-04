@@ -22,8 +22,7 @@ class UserCreate(generics.CreateAPIView):
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
         token, created = Token.objects.get_or_create(user=serializer.instance)
-        print(request.data['profile']['parent_email'])
-        my_mail(request, request.data['profile']['parent_email'])
+        my_mail(request, request.data.get('profile.parent_email'))
         user = UserModel.objects.get(username=serializer.data['username'])
         return Response({'token': token.key, 'user_id': user.id, 'username': user.username},
                         status=status.HTTP_201_CREATED, headers=headers)

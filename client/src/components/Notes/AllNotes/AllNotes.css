@@ -1,25 +1,8 @@
-.allNotes {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.note {
-    width: 300px;
-    height: 100%;
-    background-color: white;
-    border-radius: 10px;
-    border: 1px solid black;
-    margin: 10px 20px 10px 20px;
-    transition: 1s;
-}
-
 .note:hover {
-    margin: 9px 19px 9px 19px;
-    box-shadow: rgba(0, 0, 0, 0.19) 5px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    box-shadow: rgba(128, 72, 72, 0.19) 5px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .note p {
     word-wrap: break-word;
     margin: 15px;
 }
-

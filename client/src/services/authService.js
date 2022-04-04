@@ -21,6 +21,7 @@ const register = async (data, avatar) => {
 
 
     const responseData = await response.json();
+
     localStorage.setItem('user', JSON.stringify(responseData));
 
     if (!response.ok) {
@@ -40,11 +41,11 @@ const login = async (data) => {
     });
 
     const responseData = await response.json();
-
+    
     if (!response.ok) {
         throw new Error(responseData);
     }
-
+    
     localStorage.setItem('user', JSON.stringify(responseData));
     return responseData;
 }

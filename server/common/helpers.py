@@ -8,7 +8,7 @@ from server.auth_app.models import Profile
 UserModel = get_user_model()
 
 
-def my_mail(request, email):
+def my_mail(request=None, email=None):
     if request:
         subject = "Registration greetings"
         msg = "Hello, we are pleasured to see that you choose DaDay for personal diary for your child. " \

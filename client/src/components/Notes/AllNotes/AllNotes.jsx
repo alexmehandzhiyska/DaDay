@@ -5,45 +5,35 @@ import { Link } from "react-router-dom";
 
 import './AllNotes.css';
 
-import { useNavigate } from "react-router";
-
 const AllNotes = () => {
     const [notes, setNotes] = useState([]);
     const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
-    const navigate = useNavigate();
 
     useEffect(() => {
-        if (!user) {
-            navigate('/login');
-
-        }
         notesService.getReport(user.user_id)
             .then((response) => {
-
                 setNotes(response.map(obj => { 
                     return { id: obj.id, description: obj.description, date: formatDate(obj.date)};
                 }));
             })
             .catch(err => {
-                navigate('/login');
+                console.log(err);
             });
-    });
+    }, [user.user_id]);
 
 
     return (
-        <section className="allNotes">
+        <section className="flex flex-wrap justify-around pt-5">
             {notes.map((note, i) => 
-                <article className="note" key={i}>
-                <p>
-                    {note.description}
-                </p>
+                <article className="note text-black bg-white rounded-xl transition duration-1000 ease-in-out w-80 h-full my-6 mx-6 p-5 break-words" key={i}>
 
-                <div className="dateMade">
-                    <p>
-                        Date: {note.date}
-                    </p>
-                </div>
+                    <p>{note.description}</p>
 
+                    <div className="dateMade">
+                        <p>Date: {note.date}</p>
+                    </div>
+
+                    <Link to={`/notes/${user.user_id}/${note.id}`} className="ml-4">{'>'} Read note</Link>
                 </article>
             )}
         </section>
