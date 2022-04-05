@@ -1,7 +1,7 @@
 import { baseUrl } from "../constants";
 
 const register = async (data, avatar) => {
-    if (data.password != data.repeatPassword) {
+    if (data.password !== data.repeatPassword) {
         throw new Error('Passwords must match!');
     }
 
@@ -18,7 +18,6 @@ const register = async (data, avatar) => {
             'Content-Type': 'application/json'
         }
     });
-
 
     const responseData = await response.json();
 

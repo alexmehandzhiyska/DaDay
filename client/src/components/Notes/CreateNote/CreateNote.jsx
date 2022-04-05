@@ -3,6 +3,8 @@ import { useState } from "react";
 import { notesService } from "../../../services/notesService";
 import { useForm } from "react-hook-form";
 
+import { avatarData } from '../../../avatarData';
+
 import './CreateNote.css';
 
 const CreateNote = () => {
@@ -15,13 +17,7 @@ const CreateNote = () => {
 
     const { register, handleSubmit } = useForm({ mode: 'onSubmit', reValidateMode: 'onChange' });
 
-    const emotions = { 
-        'https://res.cloudinary.com/drinka/image/upload/v1648927369/da-day/emotions/emotion-1_vxvybb.png': 1,
-        'https://res.cloudinary.com/drinka/image/upload/v1648927369/da-day/emotions/emotion-2_ticimn.png': 2,
-        'https://res.cloudinary.com/drinka/image/upload/v1648927369/da-day/emotions/emotion-3_tbsyae.png': 3,
-        'https://res.cloudinary.com/drinka/image/upload/v1648927369/da-day/emotions/emotion-4_u2vxbg.png': 4,
-        'https://res.cloudinary.com/drinka/image/upload/v1648927369/da-day/emotions/emotion-5_zhqikx.png': 5
-    };
+    const emotions = avatarData[user.avatar - 1];
 
     useEffect(() => {
         setIsLoading(true);
@@ -53,13 +49,13 @@ const CreateNote = () => {
             {!isLoading && !emotion &&
                 <section className="flex px-10">
                     <article className="animated-img mt-32">
-                        <img src="https://res.cloudinary.com/drinka/image/upload/v1648968348/da-day/cat-animation_gyamxz.gif" alt="Cat" className="animated-cat"/>
+                        <img src={emotions[1]} alt="Avatar" className="animated-avatar"/>
                     </article>
 
                     <article className="emotions flex flex-col items-center mt-28">
                         <h1 className="text-5xl my-10 text-center">{question}</h1>
                         <section className="flex flex-wrap mt-10">
-                            {Object.entries(emotions).map((kvp, i) => <img key={i} onClick={() => setEmotion(kvp[1])} src={kvp[0]} alt="avatar" className="emotion-card w-28 h-28 mx-3 my-5 rounded-3xl"/>)}
+                            {emotions.slice(2).map((emotion, i) => <img key={i} onClick={() => setEmotion(i + 1)} src={emotion} alt="avatar" className="emotion-card w-28 h-28 mx-3 my-5 rounded-3xl"/>)}
                         </section>
                     </article>
                 </section>
@@ -68,7 +64,7 @@ const CreateNote = () => {
             {!isLoading && emotion && !isSubmitted &&
                 <section className="flex px-10">
                     <article className="animated-img mt-32">
-                        <img src="https://res.cloudinary.com/drinka/image/upload/v1648968348/da-day/cat-animation_gyamxz.gif" alt="Cat" className="animated-cat"/>
+                        <img src={emotions[1]} alt="Avatar" className="animated-avatar"/>
                     </article>
 
                     <article className="answer flex flex-col items-center mt-28">
@@ -85,7 +81,7 @@ const CreateNote = () => {
             {!isLoading && emotion && isSubmitted &&
                 <section className="flex px-10">
                     <article className="animated-img mt-32">
-                        <img src="https://res.cloudinary.com/drinka/image/upload/v1648968348/da-day/cat-animation_gyamxz.gif" alt="Cat" loop="infinite" className="animated-cat"/>
+                        <img src={emotions[1]} alt="Avatar" loop="infinite" className="animated-avatar"/>
                     </article>
 
                     <article>

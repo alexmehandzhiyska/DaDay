@@ -24,7 +24,8 @@ class UserCreate(generics.CreateAPIView):
         token, created = Token.objects.get_or_create(user=serializer.instance)
         my_mail(request, request.data.get('profile.parent_email'))
         user = UserModel.objects.get(username=serializer.data['username'])
-        return Response({'token': token.key, 'user_id': user.id, 'username': user.username},
+        profile = Profile.objects.get(user_id=user.id)
+        return Response({'token': token.key, 'user_id': user.id, 'username': user.username, 'avatar': profile.avatar},
                         status=status.HTTP_201_CREATED, headers=headers)
 
 
@@ -47,11 +48,13 @@ class LoginUserView(views.APIView):
         if user:
             login(request, user)
             token, created = Token.objects.get_or_create(user=request.user)
+            profile = Profile.objects.get(user_id=user.id)
 
             data = {
                 'token': token.key,
                 'user_id': request.user.pk,
-                'username': request.user.username
+                'username': request.user.username,
+                'avatar': profile.avatar,
             }
 
             return Response(data, status=status.HTTP_201_CREATED)

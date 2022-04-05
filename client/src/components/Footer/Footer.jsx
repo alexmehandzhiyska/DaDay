@@ -5,8 +5,8 @@ const Footer = () => {
 
             <nav>
                 <ul className="flex py-4 ">
-                    <li className="px-5 nav-link"><a>&copy; AllowCookies</a></li>
-                    <li className="px-5 nav-link"><a></a></li>
+                    <li className="px-5 nav-link"><a href="">&copy; AllowCookies</a></li>
+                    <li className="px-5 nav-link"><a href=""></a></li>
                 </ul>
             </nav>
         </footer>

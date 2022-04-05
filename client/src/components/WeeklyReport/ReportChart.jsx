@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bar, BarChart, CartesianAxis, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend } from 'recharts';
+import { Bar, BarChart, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend } from 'recharts';
 import { formatDate } from '../../utils';
 
 const ReportChart = ({ emotions }) => {
