@@ -1,6 +1,6 @@
 # DaDay
 
-DaDay is a mental health web application, designed specifically for children. It was created in 2 days as a part of HackAUBG 2022 by the AllowCookies team.
+DaDay is a mental health web application, designed specifically for children. Our team AllowCookies created it within 48 hours as a part of the HackAUBG 2022 hackathon.
 
 ## Team members:
 ### Developers:
