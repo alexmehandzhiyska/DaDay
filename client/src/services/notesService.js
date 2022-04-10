@@ -15,8 +15,8 @@ const getAll = async (userId, token, secure, sortingOrder) => {
     return data;
 }
 
-const getOne = async (noteId, token) => {
-    const response = await fetch(`${baseUrl}/note/${noteId}`, {
+const getOne = async (userId, noteId, token) => {
+    const response = await fetch(`${baseUrl}/note/${userId}/${noteId}`, {
         headers: {
             'Authorization': `Token ${token}`
         }

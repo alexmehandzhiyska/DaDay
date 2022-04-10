@@ -12,7 +12,7 @@ const NoteDetails = () => {
     const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
 
     useEffect(() => {
-        notesService.getOne(noteId, user.token)
+        notesService.getOne(user.user_id, noteId, user.token)
             .then(response => {
                 const note = response.note;
                 note.date = formatDate(note.date);
@@ -23,7 +23,7 @@ const NoteDetails = () => {
             .catch(err => {
                 console.log(err);
             });
-    }, [noteId, user.token]);
+    }, [user.user_id, noteId, user.token]);
     
     return (
         <section className="flex justify-center pt-10">
