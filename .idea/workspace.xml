@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a4517f8e-80af-4551-9df5-59afeeefd032" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/da_day/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/da_day/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +82,9 @@
       <workItem from="1649352287112" duration="347000" />
       <workItem from="1649410545116" duration="2208000" />
       <workItem from="1649416445834" duration="341000" />
-      <workItem from="1649438565618" duration="5014000" />
+      <workItem from="1649438565618" duration="5534000" />
+      <workItem from="1649499329896" duration="88000" />
+      <workItem from="1649614516233" duration="2382000" />
     </task>
     <servers />
   </component>

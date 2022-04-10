@@ -10,7 +10,7 @@ const AllNotes = () => {
     const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
 
     useEffect(() => {
-        notesService.getAll(user.user_id, user.token, true)
+        notesService.getAll(user.user_id, user.token, true, 'desc')
             .then((response) => {
                 setNotes(response.map(obj => { 
                     return { id: obj.id, description: obj.description, date: formatDate(obj.date)};

@@ -18,7 +18,11 @@ class NotesListView(views.APIView):
         #     if not self.request.user.is_authenticated:
         #         return Response(status=status.HTTP_403_FORBIDDEN)
 
-        queryset = Note.objects.filter(user=pk)
+        if self.request.query_params.get('sorting') == 'asc':
+            queryset = Note.objects.filter(user=pk).order_by('date')
+        else:
+            queryset = Note.objects.filter(user=pk).order_by('-date')
+
         serializer = NoteSerializer(queryset, many=True)
 
         return Response(data=serializer.data)
@@ -27,10 +31,9 @@ class NotesListView(views.APIView):
 class NoteDetailsView(views.APIView):
     def get(self, request, pk):
 
-        # if self.request.query_params.get('secure'):
-        #     print(self.request.user.is_authenticated)
-        #     if not self.request.user.is_authenticated:
-        #         return Response(status=status.HTTP_403_FORBIDDEN)
+        if self.request.query_params.get('secure'):
+            if not self.request.user.is_authenticated:
+                return Response(status=status.HTTP_403_FORBIDDEN)
 
         queryset = Note.objects.get(pk=pk)
         serializer = NoteSerializer(queryset, many=False)

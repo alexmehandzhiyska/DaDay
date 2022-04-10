@@ -23,7 +23,7 @@ const mockData = {
             id: 68,
             emotion: 2,
             description: 'My mom and dad had a fight and I had to stay by myself in my room all day.',
-            date: '03.04.2022',
+            date: '01.04.2022',
             userId: 28
         },
         {
