@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a4517f8e-80af-4551-9df5-59afeeefd032" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/da_day/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/da_day/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/auth_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/auth_app/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +83,7 @@
       <workItem from="1649416445834" duration="341000" />
       <workItem from="1649438565618" duration="5534000" />
       <workItem from="1649499329896" duration="88000" />
-      <workItem from="1649614516233" duration="2382000" />
+      <workItem from="1649614516233" duration="3303000" />
     </task>
     <servers />
   </component>
@@ -101,5 +100,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/server/auth_app/views.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -14,9 +14,9 @@ class NotesListView(views.APIView):
     permission_classes = []
 
     def get(self, request, pk):
-        # if self.request.query_params.get('secure'):
-        #     if not self.request.user.is_authenticated:
-        #         return Response(status=status.HTTP_403_FORBIDDEN)
+        if self.request.query_params.get('secure') == 'true':
+            if not self.request.META.get('HTTP_AUTHORIZATION'):
+                return Response(status=status.HTTP_403_FORBIDDEN)
 
         if self.request.query_params.get('sorting') == 'asc':
             queryset = Note.objects.filter(user=pk).order_by('date')
@@ -32,7 +32,7 @@ class NoteDetailsView(views.APIView):
     def get(self, request, pk):
 
         if self.request.query_params.get('secure'):
-            if not self.request.user.is_authenticated:
+            if not self.request.META.get('HTTP_AUTHORIZATION'):
                 return Response(status=status.HTTP_403_FORBIDDEN)
 
         queryset = Note.objects.get(pk=pk)
@@ -45,8 +45,8 @@ class NoteCreateView(views.APIView):
     queryset = Question.objects.all()
 
     def get(self, request, pk):
-        if not self.request.user.is_authenticated:
-            return Response(status=status.HTTP_403_FORBIDDEN)
+        if not self.request.META.get('HTTP_AUTHORIZATION'):
+                return Response(status=status.HTTP_403_FORBIDDEN)
 
         question = random.choice(self.queryset.all()).__str__()
         return Response({'question': question}, status=status.HTTP_200_OK)

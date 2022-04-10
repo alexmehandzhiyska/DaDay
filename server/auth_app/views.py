@@ -45,6 +45,8 @@ class LoginUserView(views.APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
         user = authenticate(username=username, password=password)
+
+
         if user:
             login(request, user)
             token, created = Token.objects.get_or_create(user=request.user)
@@ -59,4 +61,4 @@ class LoginUserView(views.APIView):
 
             return Response(data, status=status.HTTP_201_CREATED)
         else:
-            return Response(status.HTTP_400_BAD_REQUEST)
+            return Response(status=status.HTTP_400_BAD_REQUEST)
