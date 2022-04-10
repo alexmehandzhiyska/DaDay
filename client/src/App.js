@@ -15,12 +15,12 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Login />}/>
+        <Route path="/weekly-report/:userId" element={<WeeklyReport />} />
 
         <Route element={<UserRoute />}>
           <Route path="/share-day" element={<CreateNote />} />
           <Route path="/notes/:userId" element={<AllNotes />}/>
           <Route path="/notes/:userId/:noteId" element={<NoteDetails />}/>
-          <Route path="/weekly-report/:userId" element={<WeeklyReport />} />
         </Route>
         
         <Route element={<GuestRoute />}>

@@ -10,7 +10,7 @@ const AllNotes = () => {
     const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
 
     useEffect(() => {
-        notesService.getReport(user.user_id)
+        notesService.getAll(user.user_id, user.token, true)
             .then((response) => {
                 setNotes(response.map(obj => { 
                     return { id: obj.id, description: obj.description, date: formatDate(obj.date)};
@@ -19,21 +19,21 @@ const AllNotes = () => {
             .catch(err => {
                 console.log(err);
             });
-    }, [user.user_id]);
+    }, [user.user_id, user.token]);
 
 
     return (
-        <section className="flex flex-wrap justify-around pt-5">
+        <section className="notes flex flex-wrap justify-around pt-5">
             {notes.map((note, i) => 
                 <article className="note text-black bg-white rounded-xl transition duration-1000 ease-in-out w-80 h-full my-6 mx-6 p-5 break-words" key={i}>
 
-                    <p>{note.description}</p>
+                    <p className="note-description">{note.description}</p>
 
                     <div className="dateMade">
-                        <p>Date: {note.date}</p>
+                        <p className="note-date">Date: {note.date}</p>
                     </div>
 
-                    <Link to={`/notes/${user.user_id}/${note.id}`} className="ml-4">{'>'} Read note</Link>
+                    <Link to={`/notes/${user.user_id}/${note.id}`} className="details-btn ml-4">{'>'} Read note</Link>
                 </article>
             )}
         </section>

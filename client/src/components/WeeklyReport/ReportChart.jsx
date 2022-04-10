@@ -18,6 +18,7 @@ const ReportChart = ({ emotions }) => {
           width={500}
           height={300}
           data={data}
+          id="report-chart"
         >
           <CartesianGrid strokeDasharray={"3 3"} />
           <XAxis dataKey="name" />

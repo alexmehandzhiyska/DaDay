@@ -1,7 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
 
 import { authService } from "../../services/authService";
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm({ mode: 'onSubmit', reValidateMode: 'onChange' });
@@ -12,8 +15,16 @@ const Login = () => {
             .then(() => {
                 navigate('/share-day');
             })
-            .catch(err => {
-                console.log(err);
+            .catch(() => {
+                toast.error('Wrong username or password!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             });
     }
 
@@ -21,7 +32,19 @@ const Login = () => {
         <section className="flex flex-col items-center">
             <h1 className="title">Log In</h1>
 
-            <form onSubmit={handleSubmit(loginUser)}>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+
+            <form onSubmit={handleSubmit(loginUser)} id="login-form">
                 <article className="input-group">
                     <label htmlFor="username">Username</label>
                     <input type="username" name="username" id="username" {...register('username', { required: { value: true, message: 'Username is required!' } })}  className="form-input"/>

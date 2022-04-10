@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { questionsService } from "../../../services/questionsService";
 import { notesService } from "../../../services/notesService";
 import { useForm } from "react-hook-form";
 
@@ -22,7 +23,7 @@ const CreateNote = () => {
     useEffect(() => {
         setIsLoading(true);
 
-        notesService.getOne(user.user_id)
+        questionsService.getOne(user.user_id, user.token)
             .then(response => {
                 const question = response.question.replace(/<.+>/, user.username);
                 setQuestion(question);
@@ -31,7 +32,7 @@ const CreateNote = () => {
             .catch(err => {
                 console.log(err);
             })
-    }, [user.user_id, user.username]);
+    }, [user.user_id, user.token]);
 
     const sendAnswer = (data) => {
         notesService.createOne(user, { avatar: emotion, text: data.description })
@@ -70,7 +71,7 @@ const CreateNote = () => {
                     <article className="answer flex flex-col items-center mt-28">
                         <h1 className="text-5xl my-10 text-center">Why do you feel this way?</h1>
                         
-                        <form onSubmit={handleSubmit(sendAnswer)} className="flex flex-col">
+                        <form onSubmit={handleSubmit(sendAnswer)} className="flex flex-col" id="description-form">
                             <textarea {...register('description', { required: { value: true } })} name="description" type="text" className="desc mt-20 bg-transparent border-2 border-orange-200" />
                             <input type="submit" value="Send Answer" />
                         </form>

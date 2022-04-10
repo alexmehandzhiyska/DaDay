@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import { authService } from '../../services/authService';
+import { ToastContainer, toast } from 'react-toastify';
 
 import './Register.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm({ mode: 'onSubmit', reValidateMode: 'onChange' });
@@ -16,14 +18,35 @@ const Register = () => {
             .then(() => {
                 navigate('/share-day');
             })
-            .catch(err => {
-                console.log(err);
+            .catch((err) => {
+                toast.error(err.message, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+
             });
     }
 
     return (
         <section className="flex flex-col items-center">
             <h1 className="title">Register</h1>
+
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
 
             <form onSubmit={handleSubmit(registerUser)}>
                 <article className="input-group">
@@ -45,9 +68,9 @@ const Register = () => {
                 </article>
                 
                 <article className="input-group">
-                    <label htmlFor="confirm-password">Confirm Password</label>
-                    <input type="password" name="confirmPassword" id="confirm-password" {...register('repeatPassword', { required: {value: true, message: 'Repeat password is required!'}})}  className="form-input"/>
-                    {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
+                    <label htmlFor="repeat-password">Confirm Password</label>
+                    <input type="password" name="repeatPassword" id="repeat-password" {...register('repeatPassword', { required: {value: true, message: 'Repeat password is required!'}})}  className="form-input"/>
+                    {errors.repeatPassword && <p>{errors.repeatPassword.message}</p>}
                 </article>
 
                 <article className="input-group">

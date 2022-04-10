@@ -9,8 +9,10 @@ const NoteDetails = () => {
     const [isLoading, setIsLoading] = useState(true);
     const { userId, noteId } = useParams();
 
+    const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+
     useEffect(() => {
-        notesService.getNote(noteId)
+        notesService.getOne(noteId, user.token)
             .then(response => {
                 const note = response.note;
                 note.date = formatDate(note.date);
@@ -21,20 +23,20 @@ const NoteDetails = () => {
             .catch(err => {
                 console.log(err);
             });
-    }, [noteId]);
+    }, [noteId, user.token]);
     
     return (
         <section className="flex justify-center pt-10">
             {isLoading && <p>Loading...</p>}
             {!isLoading && 
                 <article className="note text-black bg-white rounded-xl transition duration-1000 ease-in-out w-1/2 my-6 mx-6 break-words p-5">
-                    <p>{note.description}</p>
+                    <p className="note-description">{note.description}</p>
 
                     <div className="dateMade">
-                        <p>Date: {note.date}</p>
+                        <p className="note-date">Date: {note.date}</p>
                     </div>
 
-                    <Link to={`/notes/${userId}`} className="ml-4">{'>'} Go Back</Link>
+                    <Link to={`/notes/${userId}`} className="back-btn ml-4">{'>'} Go Back</Link>
                 </article>
             }
         </section>
