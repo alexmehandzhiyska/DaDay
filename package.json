@@ -3,6 +3,7 @@
     "pip": "^0.0.1",
     "pip3": "^420.911.69",
     "python": "^0.0.4",
-    "react-hook-form": "^7.29.0"
+    "react-hook-form": "^7.29.0",
+    "redis": "^4.0.6"
   }
 }

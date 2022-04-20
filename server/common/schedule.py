@@ -2,14 +2,14 @@ from datetime import datetime
 import schedule
 import time
 from server.auth_app.models import Profile
-from server.common.helpers import my_mail
+# from server.common.helpers import my_mail
 
 
 def send_emails():
     profiles = Profile.objects.all()
 
     for profile in profiles:
-        my_mail(None, profile.parent_email)
+        # my_mail(None, profile.parent_email)
         profile.last_sent_email = datetime.now()
 
 

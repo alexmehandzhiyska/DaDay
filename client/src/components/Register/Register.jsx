@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router';
 import { authService } from '../../services/authService';
 import { ToastContainer, toast } from 'react-toastify';
 
+import { avatarData } from '../../avatarData';
+
 import './Register.css';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -12,6 +14,8 @@ const Register = () => {
     const navigate = useNavigate();
 
     const [avatar, setAvatar] = useState(null);
+
+    const changeAvatarState = (event, avatarNum, resourceIndex) => event.target.setAttribute('src', avatarData[avatarNum - 1][resourceIndex]);
     
     const registerUser = (data) => {
         authService.register(data, avatar)
@@ -77,11 +81,11 @@ const Register = () => {
                     <label htmlFor="avatar">Choose your Avatar</label>
                     <section className="flex mt-5">
                         <article className="flex flex-col items-center">
-                            <img src="https://res.cloudinary.com/drinka/image/upload/v1648977221/da-day/cat/cat-main_jmglcl.png" alt="Cat"  onClick={() => setAvatar(1)} className="avatar"/>
+                            <img src={avatarData[0][0]} alt="Cat"  onClick={() => setAvatar(1)} onMouseOver={(e) => changeAvatarState(e, 1, 1)} onMouseLeave={(e) => changeAvatarState(e, 1, 0)} className="avatar"/>
                         </article>
 
                         <article className="flex flex-col items-center">
-                            <img src="https://res.cloudinary.com/drinka/image/upload/v1648973984/da-day/duck/duck-main_nz3pab.png" alt="Duck" onClick={() => setAvatar(2)} className="avatar"/>
+                            <img src={avatarData[1][0]} alt="Duck" onClick={() => setAvatar(2)} onMouseOver={(e) => changeAvatarState(e, 2, 1)} onMouseLeave={(e) => changeAvatarState(e, 2, 0)} className="avatar"/>
                         </article>
                     </section>
                 </article>

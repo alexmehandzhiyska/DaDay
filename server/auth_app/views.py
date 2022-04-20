@@ -5,7 +5,6 @@ from rest_framework.response import Response
 from server.auth_app.models import Profile
 from server.auth_app.serializers import UserSerializer
 from rest_framework.authtoken.models import Token
-from server.common.helpers import my_mail
 
 
 UserModel = get_user_model()
@@ -22,7 +21,7 @@ class UserCreate(generics.CreateAPIView):
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
         token, created = Token.objects.get_or_create(user=serializer.instance)
-        my_mail(request, request.data['profile']['parent_email'])
+        # my_mail(request, request.data['profile']['parent_email'])
         user = UserModel.objects.get(username=serializer.data['username'])
         profile = Profile.objects.get(user_id=user.id)
         return Response({'token': token.key, 'user_id': user.id, 'username': user.username, 'avatar': profile.avatar},

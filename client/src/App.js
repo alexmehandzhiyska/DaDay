@@ -11,10 +11,12 @@ import WeeklyReport from './components/WeeklyReport/WeeklyReport';
 import { UserRoute, GuestRoute } from './components/common/GuardRoute';
 
 function App() {
+  const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+  
   return (
     <Layout>
       <Routes>
-        <Route path="/" element={<Login />}/>
+        <Route path="/" element={user ? <CreateNote /> : <Login />}/>
         <Route path="/weekly-report/:userId" element={<WeeklyReport />} />
 
         <Route element={<UserRoute />}>

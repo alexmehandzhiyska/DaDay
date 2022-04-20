@@ -2,7 +2,6 @@ import random
 from django.contrib.auth import get_user_model
 from rest_framework import views, status
 from rest_framework.response import Response
-
 from server.common.helpers import authenticated_user
 from server.da_day.models import Note, Question
 from server.da_day.serializers import NoteSerializer
