@@ -4,13 +4,9 @@
     <list default="true" id="a4517f8e-80af-4551-9df5-59afeeefd032" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/auth_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/auth_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/auth_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/auth_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/common/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/common/helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/common/schedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/common/schedule.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/da_day/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/da_day/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/auth_app/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/auth_app/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/auth_app/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/auth_app/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/celery.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,16 +43,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/35988/PycharmProjects/DaDay",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/35988/PycharmProjects/DaDay&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="server2" type="Python.DjangoServer" factoryName="Django server">
       <module name="server2" />
@@ -106,6 +102,8 @@
       <workItem from="1649654686432" duration="543000" />
       <workItem from="1649661242839" duration="26000" />
       <workItem from="1650463429648" duration="4056000" />
+      <workItem from="1650467874535" duration="4082000" />
+      <workItem from="1650516245208" duration="983000" />
     </task>
     <servers />
   </component>

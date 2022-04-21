@@ -6,7 +6,7 @@ from server.auth_app.tasks import send_email
 
 @receiver(post_save, sender=Profile)
 def user_created(instance, created, *args, **kwargs):
-    if not created:
+    if created:
         return
 
     send_email.delay(True, instance.parent_email)
